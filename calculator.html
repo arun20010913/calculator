@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<style>
+body {
+    background: #696969;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+#containar {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 260px;
+}
+
+
+#display {
+    width: 100%;
+    height: 50px;
+    font-size: 50px;
+    margin-bottom: 15px;
+    padding: 10px;
+ 
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    text-align: right;
+    background: none;
+    color: #000000;
+}
+
+div[id^="f"], 
+div[id^="s"], 
+div[id^="t"] {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 55px;
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #3b3b55;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #5a5af0;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+button:nth-child(4) {
+    background: #ff9500;
+}
+
+#fifth button:nth-child(1) {
+    background: #ff3b30;
+}
+
+#fifth button:nth-child(2) {
+    background: #ffcc00;
+    color: black;
+}
+
+#fifth button:nth-child(4) {
+    background: #34c759;
+}
+
+</style>
+<body>
+
+    <div id="containar">
+
+        <input type="text" id="display">
+
+        <div id="first">
+            <button onclick="one(1)">1</button>
+            <button onclick="one(2)">2</button>
+            <button onclick="one(3)">3</button>
+            <button onclick="one('+')">+</button>
+        </div>
+        <div id="second">
+            <button onclick="one(4)">4</button>
+            <button onclick="one(5)">5</button>
+            <button onclick="one(6)">6</button>
+            <button onclick="one('-')">-</button>
+        </div>
+        <div id="third">
+            <button onclick="one(7)">7</button>
+            <button onclick="one(8)">8</button>
+            <button onclick="one(9)">9</button>
+            <button onclick="one('x')">x</button>
+        </div>
+        <div id="fourth">
+            <button onclick="one('00')">00</button>
+            <button onclick="one('0')">0</button>
+            <button onclick="one('.')">.</button>
+            <button onclick="one('/')">/</button>
+        </div>
+        <div id="fifth">
+            <button onclick="clear1()">C</button>
+            <button onclick="del()">Del</button>
+            <button onclick="one('%')">%</button>
+            <button onclick="equl()">=</button>
+
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById("display")
+        function one(value){
+            display.value += value; 
+        }
+
+        function equl(){
+            display.value = eval(display.value);
+        }
+        function clear1(){
+            display.value = "";
+        }
+        function del(){
+            display.value = display.value.slice(0,-1);
+        }
+    </script>
+
+</body>
+
+</html>
